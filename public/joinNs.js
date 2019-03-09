@@ -21,7 +21,6 @@ function joinNs(endpoint) {
         let roomNodes = document.getElementsByClassName('room');
         Array.from(roomNodes).forEach(elem => {
             elem.addEventListener('click', (event) => {
-                // console.log(`someone clicked on ${event.target.innerText}`);
                 joinRoom(event.target.innerText);
             });
         });
@@ -36,7 +35,6 @@ function joinNs(endpoint) {
 
     nsSocket.on('messageToClients', (msg) => {
         const newMsgHTML = buildHTML(msg);
-        console.log(msg);
         document.querySelector('#messages').innerHTML += newMsgHTML;
     });
 

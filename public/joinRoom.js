@@ -6,7 +6,6 @@ function joinRoom(roomName) {
     });
 
     nsSocket.on('historyCatchUp', (chatHistory) => {
-        console.log('chatHistory', chatHistory);
         const messagesUl = document.querySelector('#messages');
         messagesUl.innerHTML = ``;
         chatHistory.forEach(msg => {
