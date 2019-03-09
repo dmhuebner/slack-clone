@@ -45,14 +45,15 @@ function joinNs(endpoint) {
 
 function formSubmission(event) {
     event.preventDefault();
-    const newMessage = document.querySelector('#user-message').value;
-    nsSocket.emit('newMessageToServer', {text: newMessage});
+    const newMessageHtml = document.querySelector('#user-message');
+    nsSocket.emit('newMessageToServer', {text: newMessageHtml.value});
+    newMessageHtml.value = '';
 }
 
 function buildHTML(msg) {
     const convertedDate = new Date(msg.time).toLocaleString();
     return `
-    <li>
+    <li class="message-entry">
         <div class="user-image">
             <img src="${msg.avatar}" />
         </div>
